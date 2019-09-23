@@ -1,14 +1,14 @@
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
+// const bcrypt = require("bcrypt");
+// const saltRounds = 10;
 
 function hashPassword(user) {
   if (!user.changed("password")) {
     return;
   }
 
-  return bcrypt.hash(user.password, saltRounds).then(hash => {
-    user.password = hash;
-  });
+  // return bcrypt.hash(user.password, saltRounds).then(hash => {
+  //   user.password = hash;
+  // });
 }
 
 module.exports = (sequelize, DataTypes) => {
@@ -29,9 +29,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  User.prototype.comparePassword = function(password) {
-    return bcrypt.compare(password, this.password);
-  };
+  // User.prototype.comparePassword = function(password) {
+  //   return bcrypt.compare(password, this.password);
+  // };
 
   return User;
 };
